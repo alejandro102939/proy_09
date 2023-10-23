@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persona</title>
+</head>
+<body>
+    
+    <script>
+    
+        class Persona {
+            #documento;
+            #nombreCompleto;
+
+            constructor (){
+                this.#documento = '1019985380';
+                this.#nombreCompleto = 'Luis Alejandro Morales Lopez';
+            }
+
+            set setDocumento(value){
+                this.#documento = value;
+            }
+            get getDocumento(){
+                return this.#documento;
+            }
+
+            set setNombreCompleto(value){
+                this.#nombreCompleto = value;
+            }
+            get getNombreCompleto(){
+                return this.#nombreCompleto;
+            }
+
+            informacion(){
+                console.log(`Mi numero de documento es: ` + this.getDocumento + ` Y mi nombre completo es: ` + this.getNombreCompleto );
+            }
+        }
+
+        class Aprendiz extends Persona{
+            #ficha;
+            #programa;
+
+            constructor(){
+                super();
+                this.#ficha = '2798618';
+                this.#programa = 'Analisis y Desarrollo de Software';
+            }
+
+            set setFicha(value){
+                this.#ficha = value;
+            }
+            get getFicha(){
+                return this.#ficha;
+            }
+
+            set setPrograma(value){
+                this.#programa = value;
+            }
+            get getPrograma(){
+                return this.#programa;
+            }
+
+            matricula(){
+                console.log(`Estoy inscrito en la ficha ` + this.getFicha + ` del programa ` + this.getPrograma);
+            }
+        }
+
+        class EtapaLectiva extends Aprendiz{
+            #numeroTrimestre;
+            #fechaInicio;
+            #fechaTerminacion;
+
+            constructor(){
+                super();
+                this.#numeroTrimestre = '2';
+                this.#fechaInicio = '15/10/2023';
+                this.#fechaTerminacion = '20/12/2023';
+            }
+
+            set setNumeroTrimestre(value){
+                this.#numeroTrimestre = value;
+            }
+            get getNumeroTrimestre(){
+                return this.#numeroTrimestre;
+            }
+
+            set setFechaInicio(value){
+                this.#fechaInicio = value;
+            }
+            get getFechaInicio(){
+                return this.#fechaInicio;
+            }
+
+            set setFechaTerminacion(value){
+                this.#fechaTerminacion = value;
+            }
+            get getFechaTerminacion(){
+                return this.#fechaTerminacion;
+            }
+
+            informacion(){
+                console.log(`El trimestre cursado es: ` + this.getNumeroTrimestre + ` su fecha de inicio es: ` + this.getFechaInicio + ` su fecha de finalizacion es: ` + this.getFechaTerminacion);
+            }
+
+            estado(){
+                console.log(`inscrito: aprendiz`);
+            }
+        }
+
+        class EtapaPractica extends Aprendiz{
+            #modalidad;
+            #fechaInicio;
+            #fechaTerminacion;
+
+            constructor(){
+                super();
+                this.#modalidad = 'Presencial';
+                this.#fechaInicio = '02/01/2024';
+                this.#fechaTerminacion = '05/03/2024';
+            }
+
+            set setModalidad(value){
+                this.#modalidad = value;
+            }
+            get getModalidad(){
+                return this.#modalidad;
+            }
+
+            set setFechaInicio(value){
+                this.#fechaInicio = value;
+            }
+            get getFechaInicio(){
+                return this.#fechaInicio;
+            }
+
+            set setFechaTerminacion(value){
+                this.#fechaTerminacion = value;
+            }
+            get getFechaTerminacion(){
+                return this.#fechaTerminacion;
+            }
+
+            informacion(){
+                console.log(`la modalidad de estudio es: ` + this.getModalidad + ` su fecha de inicio es: ` + this.getFechaInicio + ` su fecha de finalizacion es: ` + this.#fechaTerminacion);
+            }
+
+            estado(){
+                console.log(`inscrito: Aprendiz`);
+            }
+        }
+
+        class Instructor extends Persona{
+            #profesion;
+            #salarioBasico;
+
+            constructor(){
+                super();
+                this.#profesion = 'Instructor Sena';
+                this.#salarioBasico = 1430000;
+            }
+
+            set setProfesion(value){
+                this.#profesion = value;
+            }
+            get getProfesion(){
+                return this.#profesion;
+            }
+
+            set setSalarioBasico(value){
+                this.#salarioBasico = value;
+            }
+            get getSalarioBasico(){
+                return this.#salarioBasico;
+            }
+
+            contrato(){
+                console.log(`Su carrera profesional es ` + this.getProfesion + ` y su salario basico es ` + this.getSalarioBasico);
+            }
+        }
+
+        class InstructorPlanta extends Instructor{
+            #grado;
+            #fechaVinculacion;
+
+            constructor(){
+                super();
+                this.#grado = 5;
+                this.#fechaVinculacion = '12/10/2023';
+            }
+
+            set setGrado(value){
+                this.#grado = value;
+            }
+            get getGrado(){
+                return this.#grado;
+            }
+
+            set setFechaVinculacion(value){
+                this.#fechaVinculacion = value;
+            }
+            get getFechaVinculacion(){
+                return this.#fechaVinculacion;
+            }
+
+            informacion(){
+                console.log(`El grado del trabajador es: ` + this.getGrado + ` y su fecha de vinculacion es: ` + this.getFechaVinculacion);
+            }
+
+            estado(){
+                console.log(`su esatado es: Vinculado`);
+            }
+
+            sueldo(){
+                let calcular = 5 * 100000;
+                console.log(`Su sueldo es de grado 5: ` + calcular);
+            }
+        }
+
+        class InstructorContrato extends Instructor{
+            #duracionContrato;
+            #fechaVinculacion;
+
+            constructor(){
+                super();
+                this.#duracionContrato = 2;
+                this.#fechaVinculacion = '02/02/2024';
+            }
+
+            set setDuracionContrato(value){
+                this.#duracionContrato = value;
+            }
+            get getDuracionContrato(){
+                return this.#duracionContrato;
+            }
+
+            set setFechaVinculacion(value){
+                this.#fechaVinculacion = value;
+            }
+            get getFechaVinculacion(){
+                return this.#fechaVinculacion;
+            }
+
+            informacion(){
+                console.log(`la duracion de su contrato es: ` + this.getDuracionContrato + ` años y su fecha de vinculacion es: ` + this.getFechaVinculacion);
+            }
+
+            estado(){
+                console.log(`su estado es: Vinculado`);
+            }
+
+            sueldo(){
+                console.log(500000);
+            }
+        }
+
+        const aprendiz1 = new EtapaLectiva;
+
+        aprendiz1.setDocumento = '1019985380';
+        aprendiz1.setNombreCompleto = 'Luis Alejandro Morales Lopez';
+        aprendiz1.setFicha = '2798618';
+        aprendiz1.setPrograma = 'Analisis y Desarrollo de Software';
+        aprendiz1.setNumeroTrimestre = '2';
+        aprendiz1.setFechaInicio = '15/10/2023';
+        aprendiz1.setFechaTerminacion = '20/12/2023'
+
+        aprendiz1.informacion();
+        aprendiz1.matricula();
+        aprendiz1.informacion();
+        aprendiz1.estado();
+
+        const aprendiz2 = new Aprendiz;
+
+        
+    </script>
+
+</body>
+</html>
