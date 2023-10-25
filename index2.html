@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+</head>
+<body>
+    
+    <script>
+
+        class Producto {
+            #codigo;
+            #titulo;
+            #autor;
+
+            constructor(){
+                this.#codigo = '';
+                this.#titulo = '';
+                this.#autor = '';
+            }
+
+            set setCodigo(value){
+                this.#codigo = value;
+            }
+            get getCodigo(){
+                return this.#codigo;
+            }
+
+            set setTitulo(value){
+                this.#titulo = value;
+            }
+            get getTitulo(){
+                return this.#titulo;
+            }
+
+            set setAutor(value){
+                this.#autor = value;
+            }
+            get getAutor(){
+                return this.#autor;
+            }
+
+            informacion(){
+                console.log(`Su codigo es: ` + this.getCodigo + ` /El titulo del programa es: ` + this.getTitulo + ` /su autor es: ` + this.getAutor);
+            }
+        }
+
+        class productoImpreso extends Producto{
+            #editorial;
+            #año;
+            #precio;
+
+            constructor(){
+                super(); 
+                this.#editorial = '';
+                this.#año = '';
+                this.#precio = 0;
+            }
+
+            set setEditorial(value){
+                this.#editorial = value;
+            }
+            get getEditorial(){
+                return this.#editorial;
+            }
+
+            set setAño(value){
+                this.#año = value;
+            }
+            get getAño(){
+                return this.#año;
+            }
+
+            set setPrecio(value){
+                this.#precio = value;
+            }
+            get getPrecio(){
+                return this.#precio;
+            }
+
+            informacion2(){
+                console.log(`Creado por la editorial: ` + this.getEditorial + ` /En el año: ` + this.getAño + ` /Y su precio es: ` + this.getPrecio);
+            }
+        }
+
+        class Revista extends productoImpreso{
+            #volumen;
+
+            constructor(){
+                super();
+                this.#volumen = '';
+            }
+
+            set setVolumen(value){
+                this.#volumen = value;
+            }
+            get getVolumen(){
+                return this.#volumen;
+            }
+
+            informacion3(){
+                console.log(`El volumen de su revista es: ` + this.getVolumen);
+            }
+
+            estado(){
+                console.log(`El estado de su revista es: ` + this.getAño +  ` y su volumen es:` + this.getVolumen);
+            }
+        }
+
+        class libro extends productoImpreso{
+            #idioma;
+
+            constructor(){
+                super();
+                this.#idioma = '';
+            }
+
+            set setIdioma(value){
+                this.#idioma = value;
+            }
+            get getIdioma(){
+                return this.#idioma;
+            }
+
+            informacion4(){
+                console.log(`El titulo de su libro es: ` + this.getTitulo + ` /El autor es: ` + this.getAutor + `Su precio es: ` + this.getPrecio + `Y esta en idioma: ` + this.getIdioma);
+            }
+
+            estado2(){
+                console.log(`El estado de su libro es: ` + this.getAño + ` y su editorial es: ` + this.getEditorial);
+            }
+        }
+
+        class productoGrabado extends Producto{
+            #tiempoDuracion;
+            #medioTecnologico;
+
+
+            constructor(){
+                super();
+                this.#tiempoDuracion = 0;
+                this.#medioTecnologico = '';
+            }
+
+            set setTiempoDuracion(value){
+                this.#tiempoDuracion = value;
+            }
+            get getTiempoDuracion(){
+                return this.#tiempoDuracion;
+            }
+
+            set setMedioTecnologico(value){
+                this.#medioTecnologico = value;
+            }
+            get getMedioTecnologico(){
+                return this.#medioTecnologico;
+            }
+
+            informacion5(){
+                console.log(`El codigo de su producto es: ` + this.getCodigo + ` /El nombre del producto es: ` + this.getTitulo + ` /El tiempo de duracion es: ` + this.getTiempoDuracion + ` / El medio tecnologico es: ` + this.getMedioTecnologico);
+            }
+        }
+
+        class productoSoftware extends Producto{
+            #version;
+            #sistemaOperativo;
+
+            constructor(){
+                super();
+                this.#version = '';
+                this.#sistemaOperativo = 0;
+            }
+
+            set setVersion(value){
+                this.#version = value;
+            }
+            get getVersion(){
+                return this.#version;
+            }
+
+            set setSistemaOperativo(value){
+                this.#sistemaOperativo = value;
+            }
+            get getSistemaOperativo(){
+                return this.#sistemaOperativo;
+            }
+
+            informacion6(){
+                console.log(`El codigo del producto es: ` + this.getCodigo + ` /El nombre del producto es: ` + this.getTitulo + ` /La version es: ` + this.getVersion + ` /Su sistema operativo es: ` + this.#sistemaOperativo);
+            }
+        }
+
+        const producto1 = new Revista;
+
+        producto1.setCodigo = '';
+        producto1.setTitulo = '';
+        producto1.setAutor = '';
+        producto1.setEditorial = '';
+        producto1.setAño = '';
+        producto1.setPrecio = 0;
+        producto1.setVolumen = '';
+
+        producto1.informacion();
+        producto1.informacion2();
+        producto1.informacion3();
+        producto1.estado();
+
+        const producto2 = new libro;
+
+        producto2.setCodigo = '';
+        producto2.setTitulo = '';
+        producto2.setAutor = '';
+        producto2.setEditorial = '';
+        producto2.setAño = '';
+        producto2.setPrecio = 0;
+        producto2.setIdioma = '';
+
+        producto2.informacion();
+        producto2.informacion2();
+        producto2.informacion4();
+        producto2.estado2();
+
+        const producto3 = new productoGrabado;
+
+        producto3.setCodigo = '';
+        producto3.setTitulo = '';
+        producto3.setAutor = '';
+        producto3.setTiempoDuracion = 0;
+        producto3.setMedioTecnologico = '';
+
+        producto3.informacion();
+        producto3.informacion5();
+
+        const producto4 = new productoSoftware;
+
+        producto4.setCodigo = '';
+        producto4.setTitulo = '';
+        producto4.setAutor = '';
+        producto4.setVersion = '';
+        producto4.setSistemaOperativo = 0;
+
+        producto4.informacion();
+        producto4.informacion6();
+
+
+
+    </script>
+
+
+
+</html>

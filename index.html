@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persona</title>
@@ -9,15 +9,16 @@
     
     <script>
     
-        class Persona {
-            #documento;
+        class Persona { // Clase padre 
+            #documento;  // propiedades
             #nombreCompleto;
 
-            constructor (){
+            constructor (){ // Se utiliza para inicializar un objeto cuando se crea una instancia de una clase, para que el atribo o propiedad sea coherente y utilizable
                 this.#documento = '1019985380';
                 this.#nombreCompleto = 'Luis Alejandro Morales Lopez';
             }
 
+            // set para asignar un valor / get para obtener el valor de un atributo de una clase 
             set setDocumento(value){
                 this.#documento = value;
             }
@@ -32,22 +33,23 @@
                 return this.#nombreCompleto;
             }
 
-            informacion(){
+            informacion(){ // Metodo agregado para dar informacion 
                 console.log(`Mi numero de documento es: ` + this.getDocumento + ` Y mi nombre completo es: ` + this.getNombreCompleto );
             }
         }
 
-        class Aprendiz extends Persona{
-            #ficha;
+        class Aprendiz extends Persona{ // Clase hija que hereda de clase padre 'Persona'
+            #ficha;  // propiedades
             #programa;
 
-            constructor(){
+            constructor(){  // // Se utiliza para inicializar un objeto cuando se crea una instancia de una clase, para que el atribo o propiedad sea coherente y utilizable
                 super();
                 this.#ficha = '2798618';
                 this.#programa = 'Analisis y Desarrollo de Software';
             }
 
-            set setFicha(value){
+            // valor / obtener
+            set setFicha(value){ 
                 this.#ficha = value;
             }
             get getFicha(){
@@ -61,13 +63,13 @@
                 return this.#programa;
             }
 
-            matricula(){
+            matricula(){  // metodo
                 console.log(`Estoy inscrito en la ficha ` + this.getFicha + ` del programa ` + this.getPrograma);
             }
         }
 
-        class EtapaLectiva extends Aprendiz{
-            #numeroTrimestre;
+        class EtapaLectiva extends Aprendiz{ // Clase hija o subclase
+            #numeroTrimestre; // atributos
             #fechaInicio;
             #fechaTerminacion;
 
@@ -78,6 +80,7 @@
                 this.#fechaTerminacion = '20/12/2023';
             }
 
+            // valor / obtener
             set setNumeroTrimestre(value){
                 this.#numeroTrimestre = value;
             }
@@ -99,16 +102,16 @@
                 return this.#fechaTerminacion;
             }
 
-            informacion(){
+            informacion1(){ // metodo
                 console.log(`El trimestre cursado es: ` + this.getNumeroTrimestre + ` su fecha de inicio es: ` + this.getFechaInicio + ` su fecha de finalizacion es: ` + this.getFechaTerminacion);
             }
 
             estado(){
-                console.log(`inscrito: aprendiz`);
+                console.log('inscrito: aprendiz');
             }
         }
 
-        class EtapaPractica extends Aprendiz{
+        class EtapaPractica extends Aprendiz{ // clase hija
             #modalidad;
             #fechaInicio;
             #fechaTerminacion;
@@ -120,6 +123,7 @@
                 this.#fechaTerminacion = '05/03/2024';
             }
 
+            // valor / obtener
             set setModalidad(value){
                 this.#modalidad = value;
             }
@@ -141,7 +145,7 @@
                 return this.#fechaTerminacion;
             }
 
-            informacion(){
+            informacion2(){ // metodo
                 console.log(`la modalidad de estudio es: ` + this.getModalidad + ` su fecha de inicio es: ` + this.getFechaInicio + ` su fecha de finalizacion es: ` + this.#fechaTerminacion);
             }
 
@@ -150,7 +154,7 @@
             }
         }
 
-        class Instructor extends Persona{
+        class Instructor extends Persona{ // clase hija
             #profesion;
             #salarioBasico;
 
@@ -160,6 +164,7 @@
                 this.#salarioBasico = 1430000;
             }
 
+            // valor / obtener
             set setProfesion(value){
                 this.#profesion = value;
             }
@@ -174,12 +179,12 @@
                 return this.#salarioBasico;
             }
 
-            contrato(){
+            contrato(){ // metodo
                 console.log(`Su carrera profesional es ` + this.getProfesion + ` y su salario basico es ` + this.getSalarioBasico);
             }
         }
 
-        class InstructorPlanta extends Instructor{
+        class InstructorPlanta extends Instructor{ // clase hija
             #grado;
             #fechaVinculacion;
 
@@ -189,6 +194,7 @@
                 this.#fechaVinculacion = '12/10/2023';
             }
 
+            // valor / obtener
             set setGrado(value){
                 this.#grado = value;
             }
@@ -203,12 +209,12 @@
                 return this.#fechaVinculacion;
             }
 
-            informacion(){
+            informacion3(){ //metodos
                 console.log(`El grado del trabajador es: ` + this.getGrado + ` y su fecha de vinculacion es: ` + this.getFechaVinculacion);
             }
 
             estado(){
-                console.log(`su esatado es: Vinculado`);
+                console.log(`su estado es: Vinculado`);
             }
 
             sueldo(){
@@ -217,7 +223,7 @@
             }
         }
 
-        class InstructorContrato extends Instructor{
+        class InstructorContrato extends Instructor{ // clase hija
             #duracionContrato;
             #fechaVinculacion;
 
@@ -227,6 +233,7 @@
                 this.#fechaVinculacion = '02/02/2024';
             }
 
+            // valor / obtener
             set setDuracionContrato(value){
                 this.#duracionContrato = value;
             }
@@ -241,20 +248,20 @@
                 return this.#fechaVinculacion;
             }
 
-            informacion(){
+            informacion4(){ // metodos
                 console.log(`la duracion de su contrato es: ` + this.getDuracionContrato + ` años y su fecha de vinculacion es: ` + this.getFechaVinculacion);
             }
 
-            estado(){
+            estado2(){
                 console.log(`su estado es: Vinculado`);
             }
 
-            sueldo(){
-                console.log(500000);
+            sueldo2(){
+                console.log('Su sueldo es de: ', 500000);
             }
         }
 
-        const aprendiz1 = new EtapaLectiva;
+        const aprendiz1 = new EtapaLectiva; // instancia de la clase 'EtapaLectiva' 
 
         aprendiz1.setDocumento = '1019985380';
         aprendiz1.setNombreCompleto = 'Luis Alejandro Morales Lopez';
@@ -266,12 +273,57 @@
 
         aprendiz1.informacion();
         aprendiz1.matricula();
-        aprendiz1.informacion();
+        aprendiz1.informacion1();
         aprendiz1.estado();
 
-        const aprendiz2 = new Aprendiz;
+        const aprendiz2 = new EtapaPractica; // instancia de la clase 'EtapaPractica'
 
+        aprendiz2.setDocumento = '52617954';
+        aprendiz2.setNombreCompleto = 'Luz Angela Lopez Pulido';
+        aprendiz2.setFicha = '2798618';
+        aprendiz2.setPrograma = 'Analisis y desarrollo de Software';
+        aprendiz2.setModalidad = 'Presencial';
+        aprendiz2.setFechaInicio = '02/01/2024';
+        aprendiz2.setFechaTerminacion = '05/03/2024'; 
         
+        aprendiz2.informacion();
+        aprendiz2.matricula();
+        aprendiz2.informacion2();
+        aprendiz2.estado();
+
+        const instructor1 = new InstructorPlanta; // instancia de la clase 'InstructorPlanta'
+
+        instructor1.setDocumento = '76298413';
+        instructor1.setNombreCompleto = 'Cristian Felipe Vanega Torres';
+        instructor1.setProfesion = 'Instructor Sena';
+        instructor1.setSalarioBasico = 1430000;
+        instructor1.setGrado = 5;
+        instructor1.setFechaVinculacion = '12/10/2023';
+
+        instructor1.informacion();
+        instructor1.contrato();
+        instructor1.informacion3();
+        instructor1.estado();
+        instructor1.sueldo();
+
+        const instructor2 = new InstructorContrato; // instancia de la clase 'InstructorContrato'
+
+        instructor2.setDocumento = '83456752';
+        instructor2.setNombreCompleto = 'Jesus david Valenzuela Castro';
+        instructor2.setProfesion = 'Diseñador de interiores';
+        instructor2.setSalarioBasico = 1250000;
+        instructor2.setDuracionContrato = 2;
+        instructor2.setFechaVinculacion = '02/02/2024';
+
+        instructor2.informacion();
+        instructor2.contrato();
+        instructor2.informacion4();
+        instructor2.estado2();
+        instructor2.sueldo2();
+
+
+
+
     </script>
 
 </body>
